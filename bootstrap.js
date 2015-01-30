@@ -796,6 +796,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "Triton.store.Retenedores": [],
   "Triton.store.Tarifas": [],
   "Triton.view.Main": [],
+  "Triton.view.cartera.CarterasList": [],
+  "Triton.view.cartera.CarterasNavigationView": [],
   "Triton.view.cotizador.DefinitionsPanel": [],
   "Triton.view.cotizador.DetailsTpl": [],
   "Triton.view.cotizador.OcupacionesList": [],
@@ -1804,6 +1806,12 @@ Ext.ClassManager.addNameAliasMappings({
   "Triton.store.Tarifas": [],
   "Triton.view.Main": [
     "widget.main"
+  ],
+  "Triton.view.cartera.CarterasList": [
+    "widget.carteraslist"
+  ],
+  "Triton.view.cartera.CarterasNavigationView": [
+    "widget.carterasnavigationview"
   ],
   "Triton.view.cotizador.DefinitionsPanel": [
     "widget.definitionspanel"

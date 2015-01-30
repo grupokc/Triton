@@ -2,7 +2,7 @@ Ext.define('Triton.view.Main', {
     extend: 'Ext.Container',
     xtype: 'main',
     requires: [
-    'Ext.tab.Panel', 'Ext.Map', 'Triton.form.login.Login', 'Triton.form.cotizador.CotizadorForm', /*'Triton.view.cartera.CarterasNavigationView', 'Ext.data.JsonP', */'Triton.view.localizacion.Map', 'Ext.Img',
+    'Ext.tab.Panel', 'Ext.Map', 'Triton.form.login.Login', 'Triton.form.cotizador.CotizadorForm', 'Triton.view.cartera.CarterasNavigationView', 'Ext.data.JsonP', 'Triton.view.localizacion.Map', 'Ext.Img',
     'Triton.view.cotizador.ResumeTpl'
     ],
     config: {
@@ -55,7 +55,7 @@ Ext.define('Triton.view.Main', {
                 iconCls: 'compose'
             }, {
                 title: 'Cartera',
-                //xtype: 'carterasnavigationview',
+                xtype: 'carterasnavigationview',
                 iconCls: 'user'
             }, {
                 title: 'Localización',
