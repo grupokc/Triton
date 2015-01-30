@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /Users/manduks/Proyectos/Sencha/Triton1.1/app.js
+// @require /Users/lumartin/sencha/workspace/Triton/app.js

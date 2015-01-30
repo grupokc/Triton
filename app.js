@@ -21,6 +21,7 @@ Ext.application({
         'Main'
     ],
 
+    controllers:['Main'],
     stores:['Ocupaciones','Carteras', 'Planes','CarterasCoberturas','Geolocalizaciones','Coberturas', 'Retenedores','Factores', 'CoberturasTarifas','Tarifas','Agentes'],
 
 

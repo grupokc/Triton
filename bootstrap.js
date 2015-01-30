@@ -760,6 +760,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
+  "Triton.controller.Main": [],
   "Triton.form.EdadField": [],
   "Triton.form.cotizador.CotizadorForm": [],
   "Triton.form.cotizador.CurrencyField": [],
@@ -1749,6 +1750,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "Triton.controller.Main": [],
   "Triton.form.EdadField": [
     "widget.edadfield"
   ],
