@@ -1,10 +1,13 @@
 Ext.define('Triton.view.Main', {
     extend: 'Ext.Container',
     xtype: 'main',
-    requires: ['Ext.tab.Panel', 'Ext.Map', 'Triton.form.login.Login', /*'Triton.form.cotizador.CotizadorForm', 'Triton.view.cartera.CarterasNavigationView', 'Ext.data.JsonP', */'Triton.view.localizacion.Map', 'Ext.Img'],
+    requires: [
+    'Ext.tab.Panel', 'Ext.Map', 'Triton.form.login.Login', 'Triton.form.cotizador.CotizadorForm', /*'Triton.view.cartera.CarterasNavigationView', 'Ext.data.JsonP', */'Triton.view.localizacion.Map', 'Ext.Img',
+    'Triton.view.cotizador.ResumeTpl'
+    ],
     config: {
         layout: 'card',
-        activeItem: 0,
+        activeItem: 1,
         items: [{
             xtype: 'container',
             baseCls: 'login-background',

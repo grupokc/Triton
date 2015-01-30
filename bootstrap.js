@@ -760,8 +760,23 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
+  "Triton.form.EdadField": [],
+  "Triton.form.cotizador.CotizadorForm": [],
+  "Triton.form.cotizador.CurrencyField": [],
+  "Triton.form.cotizador.FumaSelectField": [],
+  "Triton.form.cotizador.GeneroSelectField": [],
+  "Triton.form.cotizador.OcupacionSelectField": [],
+  "Triton.form.cotizador.PagoSelectField": [],
+  "Triton.form.cotizador.PaquetesSelectField": [],
+  "Triton.form.cotizador.PlanSelecField": [],
   "Triton.form.login.Login": [],
+  "Triton.model.Cotizacion": [],
   "Triton.view.Main": [],
+  "Triton.view.cotizador.DefinitionsPanel": [],
+  "Triton.view.cotizador.DetailsTpl": [],
+  "Triton.view.cotizador.OcupacionesList": [],
+  "Triton.view.cotizador.ResumeContainer": [],
+  "Triton.view.cotizador.ResumeTpl": [],
   "Triton.view.localizacion.Map": [],
   "Triton.view.localizacion.MapList": []
 });
@@ -1708,12 +1723,51 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "Triton.form.EdadField": [
+    "widget.edadfield"
+  ],
+  "Triton.form.cotizador.CotizadorForm": [
+    "widget.cotizadorform"
+  ],
+  "Triton.form.cotizador.CurrencyField": [
+    "widget.currencyfield"
+  ],
+  "Triton.form.cotizador.FumaSelectField": [
+    "widget.fumaselectfield"
+  ],
+  "Triton.form.cotizador.GeneroSelectField": [
+    "widget.generoselectfield"
+  ],
+  "Triton.form.cotizador.OcupacionSelectField": [
+    "widget.ocupacionselectfield"
+  ],
+  "Triton.form.cotizador.PagoSelectField": [
+    "widget.pagoselectfield"
+  ],
+  "Triton.form.cotizador.PaquetesSelectField": [
+    "widget.paquetesselectField"
+  ],
+  "Triton.form.cotizador.PlanSelecField": [
+    "widget.planselectfield"
+  ],
   "Triton.form.login.Login": [
     "widget.loginform"
   ],
+  "Triton.model.Cotizacion": [],
   "Triton.view.Main": [
     "widget.main"
   ],
+  "Triton.view.cotizador.DefinitionsPanel": [
+    "widget.definitionspanel"
+  ],
+  "Triton.view.cotizador.DetailsTpl": [],
+  "Triton.view.cotizador.OcupacionesList": [
+    "widget.ocupacioneslist"
+  ],
+  "Triton.view.cotizador.ResumeContainer": [
+    "widget.resumecontainer"
+  ],
+  "Triton.view.cotizador.ResumeTpl": [],
   "Triton.view.localizacion.Map": [
     "widget.mapa"
   ],
