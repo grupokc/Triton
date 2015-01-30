@@ -21,6 +21,9 @@ Ext.application({
         'Main'
     ],
 
+    stores:['Ocupaciones','Carteras', 'Planes','CarterasCoberturas','Geolocalizaciones','Coberturas', 'Retenedores','Factores', 'CoberturasTarifas','Tarifas','Agentes'],
+
+
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',

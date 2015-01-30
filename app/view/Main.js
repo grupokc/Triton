@@ -51,7 +51,7 @@ Ext.define('Triton.view.Main', {
             tabBarPosition: 'bottom',
             items: [{
                 title: 'Cotizador',
-                //xtype: 'cotizadorform',
+                xtype: 'cotizadorform',
                 iconCls: 'compose'
             }, {
                 title: 'Cartera',
