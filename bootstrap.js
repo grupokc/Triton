@@ -760,6 +760,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
+  "Triton.form.login.Login": [],
   "Triton.view.Main": []
 });
 
@@ -1705,6 +1706,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "Triton.form.login.Login": [
+    "widget.loginform"
+  ],
   "Triton.view.Main": [
     "widget.main"
   ]

@@ -1,7 +1,7 @@
 Ext.define('Triton.view.Main', {
     extend: 'Ext.Container',
     xtype: 'main',
-    requires: ['Ext.tab.Panel', 'Ext.Map', /*'Triton.form.login.Login', 'Triton.form.cotizador.CotizadorForm', 'Triton.view.cartera.CarterasNavigationView', 'Ext.data.JsonP', 'Triton.view.localizacion.Map',*/ 'Ext.Img'],
+    requires: ['Ext.tab.Panel', 'Ext.Map', 'Triton.form.login.Login', /*'Triton.form.cotizador.CotizadorForm', 'Triton.view.cartera.CarterasNavigationView', 'Ext.data.JsonP', 'Triton.view.localizacion.Map',*/ 'Ext.Img'],
     config: {
         layout: 'card',
         activeItem: 0,
@@ -36,7 +36,7 @@ Ext.define('Triton.view.Main', {
                     flex: 1
                 }]
             }, {
-                //xtype: 'loginform',
+                xtype: 'loginform',
                 baseCls: '',
                 flex: 2
             }, {
