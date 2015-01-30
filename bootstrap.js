@@ -761,7 +761,9 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.viewport.WP"
   ],
   "Triton.form.login.Login": [],
-  "Triton.view.Main": []
+  "Triton.view.Main": [],
+  "Triton.view.localizacion.Map": [],
+  "Triton.view.localizacion.MapList": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1711,6 +1713,12 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Triton.view.Main": [
     "widget.main"
+  ],
+  "Triton.view.localizacion.Map": [
+    "widget.mapa"
+  ],
+  "Triton.view.localizacion.MapList": [
+    "widget.maplist"
   ]
 });
 
