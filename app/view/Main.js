@@ -1,50 +1,117 @@
 Ext.define('Triton.view.Main', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.Container',
     xtype: 'main',
-    requires: [
-        'Ext.TitleBar',
-        'Ext.Video'
-    ],
+    requires: ['Ext.tab.Panel', 'Ext.Map', /*'Triton.form.login.Login', 'Triton.form.cotizador.CotizadorForm', 'Triton.view.cartera.CarterasNavigationView', 'Ext.data.JsonP', 'Triton.view.localizacion.Map',*/ 'Ext.Img'],
     config: {
-        tabBarPosition: 'bottom',
-
-        items: [
-            {
-                title: 'Welcome',
-                iconCls: 'home',
-
-                styleHtmlContent: true,
-                scrollable: true,
-
-                items: {
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: 'Welcome to Sencha Touch 2'
-                },
-
-                html: [
-                    "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the ",
-                    "contents of <a target='_blank' href=\"app/view/Main.js\">app/view/Main.js</a> - edit that file ",
-                    "and refresh to change what's rendered here."
-                ].join("")
+        layout: 'card',
+        activeItem: 0,
+        items: [{
+            xtype: 'container',
+            baseCls: 'login-background',
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
             },
-            {
-                title: 'Get Started',
-                iconCls: 'action',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Getting Started'
-                    },
-                    {
-                        xtype: 'video',
-                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
-                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
-                    }
-                ]
-            }
-        ]
+            defaults: {
+                flex: 1
+            },
+            items: [{
+                xtype: 'component',
+                height: '8%'
+            }, {
+                xtype: 'container',
+                layout: {
+                    type: 'hbox',
+                    align: 'stretch'
+                },
+                items: [{
+                    xtype: 'component',
+                    flex: 1
+                }, {
+                    xtype: 'image',
+                    src: 'resources/images/kc.png',
+                    width: 300
+                }, {
+                    xtype: 'component',
+                    flex: 1
+                }]
+            }, {
+                //xtype: 'loginform',
+                baseCls: '',
+                flex: 2
+            }, {
+                xtype: 'container'
+            }]
+        }, {
+            xtype: 'tabpanel',
+            activeItem: 3, 
+            tabBarPosition: 'bottom',
+            items: [{
+                title: 'Cotizador',
+                //xtype: 'cotizadorform',
+                iconCls: 'compose'
+            }, {
+                title: 'Cartera',
+                //xtype: 'carterasnavigationview',
+                iconCls: 'user'
+            }, {
+                title: 'Localización',
+                //xtype: 'mapa',
+                iconCls: 'maps'
+            }, {
+                title: 'Configuración',
+                iconCls: 'settings',
+                itemId: 'configurationPanel',
+                scrollable: {
+                    direction: 'vertical',
+                    directionLock: true
+                },
+                items: [{
+                    xtype: 'toolbar',
+                    title: 'Sincronización',
+                    ui: 'light',
+                    docked: 'top',
+                    hidden: Ext.os.is.Phone
+                },{
+                    xtype: 'component',
+                    docked: 'top',
+                    height:'20%',
+                    hidden: Ext.os.is.Phone
+                }, {
+                    xtype: 'component',
+                    cls: 'triton-configuracion',
+                    html: ['<br>Para activar la sincronización es recomendable conectarse a una red WI-FI.<br><br>', '<em>Última sincronización: <b id="fechaSincronizacion"> ',
+                        localStorage.getItem('fechaUltimaSincronizacion') ? localStorage.getItem('fechaUltimaSincronizacion') : '----', '</b></em>'
+                    ].join('')
+                }, {
+                    xtype: 'fieldset',
+                    instructions: 'Esta operación puede tomar varios minutos',
+                    items: [{
+                        xtype: 'button',
+                        itemId: 'sincronizar',
+                        iconCls: 'download',
+                        ui: 'confirm',
+                        text: 'Sincronizar Datos'
+                    }]
+                }, {
+                    xtype: 'fieldset',
+                    instructions: 'Esta operación eliminará todos los datos de la aplicación',
+                    items: [{
+                        xtype: 'button',
+                        itemId: 'borrarInformacion',
+                        iconCls: 'delete',
+                        ui: 'decline',
+                        text: 'Eliminar Datos'
+                    }]
+                },{
+                    xtype: 'fieldset',
+                    instructions: 'TRITON <br> Versión 1.0.0'
+                }]
+            }, {
+                title: 'Salir',
+                itemId: 'logout',
+                iconCls: 'delete'
+            }]
+        }]
     }
 });
