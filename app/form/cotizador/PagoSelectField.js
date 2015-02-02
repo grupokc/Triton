@@ -14,7 +14,8 @@ Ext.define('Triton.form.cotizador.PagoSelectField', {
         options:[{
         	text:'Mensual',
         	value:'Mensual'
-        },{
+        }
+        /*,{
         	text:'Trimestral',
         	value:'Trimestral'
         },{
@@ -23,7 +24,7 @@ Ext.define('Triton.form.cotizador.PagoSelectField', {
         },{
         	text:'Anual',
         	value:'Anual'
-        }]
+        }*/]
     },
     /**
      * Shows the picker for the select field, whether that is a {@link Ext.picker.Picker} or a simple
