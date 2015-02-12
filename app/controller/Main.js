@@ -438,7 +438,7 @@ Ext.define('Triton.controller.Main', {
                 me.unmask();
                 list.setCurrentPage(1);
             }, function() {
-                console.log(arguments)
+                //console.log(arguments)
             });
         });
     },
@@ -520,6 +520,7 @@ Ext.define('Triton.controller.Main', {
                         Ext.each(tablesArray, function(item) {
                             me.clearTable(item);
                         });
+                        //tablesArray = ['Carteras'];
                         me.updateInformation(undefined, undefined, undefined, tablesArray, 0);
                     }else if(action.data.length == 0){
                         Ext.Msg.alert('No hay datos que sincronizar.');
@@ -562,7 +563,11 @@ Ext.define('Triton.controller.Main', {
                     paginasTotales = action.paginas;
                     db.transaction(function(tx) {
                         Ext.each(action.data, function(item, index) {
-                            tx.executeSql(query.query, proxy.getColumnValues(columns, item), function() {console.log(arguments)}, function() {console.log(arguments)});
+                            tx.executeSql(query.query, proxy.getColumnValues(columns, item), function() {
+                                //console.log(arguments);
+                            }, function() {
+                                //console.log(arguments);
+                            });
                         });
                         me.unmask();
                         /**

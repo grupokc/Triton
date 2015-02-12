@@ -84,7 +84,7 @@ Ext.define('Triton.model.Cartera',{
 			defaultValue: 'NA',
 			type:'string'
 		},{
-			name:'nombre_retenedor',
+			name:'Nombre_Retenedor',
 			defaultValue: 'NA',
 			type:'string'
 		},{
