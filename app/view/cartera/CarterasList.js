@@ -19,7 +19,7 @@ Ext.define('Triton.view.cartera.CarterasList', {
                 '<p>{nombre}</p>',
                 '<span>RFC : <b>{rfc}</b></span> </br>', 
                 '<span>Poliza : <b>{poliza}</b></span> </br>',
-                '<span>Retenedor : <b>{nombre_retenedor}</b></span>',
+                '<span>Retenedor : <b>{Nombre_Retenedor}</b></span>',
             '</div>'
         ].join(''),
         store: 'Carteras',
@@ -41,7 +41,13 @@ Ext.define('Triton.view.cartera.CarterasList', {
                 itemId:'buscarCartera',
                 text:'Buscar'
             }]
-        }]
+        }]/*,
+        listeners:{
+            itemtap : function ( list, index, target, record, e, eOpts ) {
+                    console.log(record.get('Nombre_Retenedor'));
+                    console.log(record.getData());
+            }
+        },
         /*listeners: {
             initializeeee: function(list) {
                 var scroller = list.getScrollable().getScroller();
