@@ -8,3 +8,4 @@
 .sass-cache
 build
 cordova
+!cordova/config.xml
