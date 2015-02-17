@@ -41,18 +41,12 @@ Ext.define('Triton.view.cartera.CarterasList', {
                 itemId:'buscarCartera',
                 text:'Buscar'
             }]
-        }]/*,
-        listeners:{
-            itemtap : function ( list, index, target, record, e, eOpts ) {
-                    console.log(record.get('Nombre_Retenedor'));
-                    console.log(record.getData());
-            }
-        },
-        /*listeners: {
-            initializeeee: function(list) {
+        }],
+        listeners: {
+            initialize: function(list) {
                 var scroller = list.getScrollable().getScroller();
                 scroller.on({
-                    scrollenddd: function(scroller, x, y) {
+                    /*scrollend: function(scroller, x, y) {
                         if (y >= scroller.maxPosition.y) {
                             var me = list,
                                 currentScrollToTopOnRefresh,
@@ -65,12 +59,13 @@ Ext.define('Triton.view.cartera.CarterasList', {
                                 list.setScrollToTopOnRefresh(false);
                                 value = list.down('searchfield').getValue();
                                 //we make the query
-                                query = "SELECT * FROM CARTERA WHERE ((rfc like '%" + value + "%') OR (poliza like '%" + value + "%') OR (nombre like '%" + value + "%') OR (id_retenedor like '%" + value + "%')) Order by nombre ASC LIMIT 50";
+                                query = "SELECT * FROM CARTERA WHERE ((rfc like '%" + value + "%') OR (poliza like '%" + value + "%') OR (nombre like '%" + value + "%') OR (Nombre_Retenedor like '%" + value + "%')) Order by nombre ASC LIMIT 10";
                                 
                                 list.setMasked({
                                     xtype: 'loadmask',
                                     message: 'Cargando ...'
                                 });
+                                console.log(query);
                                 db.transaction(function(tx) {
                                     tx.executeSql(query, [], function(tx, results) {
                                         var len = results.rows.length,
@@ -78,9 +73,6 @@ Ext.define('Triton.view.cartera.CarterasList', {
                                         for (i = 0; i < len; i++) {
                                             records.push(results.rows.item(i))
                                         }
-                                        console.log(store.getCount());
-                                        console.log(records);
-                                        store.add(records);
                                         list.setScrollToTopOnRefresh(currentScrollToTopOnRefresh);
                                         list.setMasked(false);
                                         list.setCurrentPage(list.getCurrentPage() + 1);
@@ -90,11 +82,12 @@ Ext.define('Triton.view.cartera.CarterasList', {
                                 });
                             }
                         }
-                    },
+                    },*/
                     scrollend: function(scroller, x, y) {
                         if (y >= scroller.maxPosition.y) {
                             var me = list,
                                 currentScrollToTopOnRefresh;
+
                             if (!me.storeFullyLoaded()) {
                                 currentScrollToTopOnRefresh = list.getScrollToTopOnRefresh();
                                 list.setScrollToTopOnRefresh(false);
@@ -110,7 +103,7 @@ Ext.define('Triton.view.cartera.CarterasList', {
                     scope: this
                 });
             }
-        }*/
+        }
     },
     /**
      * @private

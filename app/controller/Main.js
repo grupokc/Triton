@@ -415,30 +415,17 @@ Ext.define('Triton.controller.Main', {
     onSearchCarterasKeyUp: function(btn) {
         var me = this,
             field = btn.up('toolbar').down('searchfield'),
-            store = Ext.getStore('Carteras'),
             list = btn.up('carteraslist'),
-            query = '',
-            value = field.getValue(),
-            db = store.getModel().getProxy().getDatabaseObject(),
-            records = [];
-        me.mask('Buscando ...');
-        //we make the query
-        query = "SELECT * FROM CARTERA WHERE ((rfc like '%" + value + "%') OR (poliza like '%" + value + "%') OR (nombre like '%" + value + "%') OR (Nombre_Retenedor like '%" + value + "%')) Order by nombre ASC LIMIT 100";
-        store.removeAll();
-        db.transaction(function(tx) {
-            tx.executeSql(query, [], function(tx, results) {
-                var len = results.rows.length,
-                    i;
-                for (i = 0; i < len; i++) {
-                    records.push(results.rows.item(i))
-                }
-                store.insert(0,records);
-                me.unmask();
-                list.setCurrentPage(1);
-            }, function() {
+            value = field.getValue();
 
-            });
-        });
+            //filtramos el store, luego cargamos 
+            list.getStore().filter([
+                {property: 'rfc', value: value, anyMatch: true},
+                {property: 'poliza', value: value, anyMatch: true},
+                {property: 'nombre', value: value, anyMatch: true},
+                {property: 'Nombre_Retenedor', value: value, anyMatch: true}
+            ]);
+            list.getStore().load();
     },
     /**
      * Limpiamos el searchfield y el store

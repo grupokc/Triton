@@ -31,7 +31,7 @@ Ext.define('Triton.view.cotizador.OcupacionesList', {
                 xtype: 'spacer'
             }]
         }],
-        listeners: {
+        listenerrrs: {
             initialize: function(list) {
                 var scroller = list.getScrollable().getScroller();
                 scroller.on({

@@ -6,6 +6,7 @@
  */
 Ext.define('Triton.model.Cartera',{
 	extend:'Ext.data.Model',
+	requires:['Triton.custom.proxy.SQL'],
 	config:{
 		fields:[{
 			name:'OportunidadVenta',
@@ -137,7 +138,7 @@ Ext.define('Triton.model.Cartera',{
 			type:'string'
 		}],
 		proxy:{
-			type:'sql'
+			type:'customsql'
 		}
 	}
 });
