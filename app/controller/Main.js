@@ -423,7 +423,7 @@ Ext.define('Triton.controller.Main', {
             records = [];
         me.mask('Buscando ...');
         //we make the query
-        query = "SELECT * FROM CARTERA WHERE ((rfc like '%" + value + "%') OR (poliza like '%" + value + "%') OR (nombre like '%" + value + "%') OR (id_retenedor like '%" + value + "%')) Order by nombre ASC LIMIT 100";
+        query = "SELECT * FROM CARTERA WHERE ((rfc like '%" + value + "%') OR (poliza like '%" + value + "%') OR (nombre like '%" + value + "%') OR (Nombre_Retenedor like '%" + value + "%')) Order by nombre ASC LIMIT 100";
         store.removeAll();
         db.transaction(function(tx) {
             tx.executeSql(query, [], function(tx, results) {
