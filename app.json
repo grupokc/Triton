@@ -27,7 +27,7 @@
                     "platforms": "android",
                     "platform": "android",
                     "name": "Triton",
-                    "id": "com.codetlan.Triton"
+                    "id": "com.grupokc.Triton"
                 }
             }
         },
@@ -38,7 +38,7 @@
                     "platforms": "ios",
                     "platform": "ios",
                     "name": "Triton",
-                    "id": "com.codetlan.Triton",
+                    "id": "com.grupokc.Triton",
                     "remote":true
                 }
             }

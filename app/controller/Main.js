@@ -262,12 +262,10 @@ Ext.define('Triton.controller.Main', {
     setOcupacionDetails: function(field, list, record) {
         var form = this.getMain().down('cotizadorform');
         form.down('#ocupacionDetails').setData(record.getData());
-        //desabilitamos los campos correspondientes
-        form.setEnable(form.down('field[name=tiba]'), record.get('TIBA'));
+        //desabilitamos los campos correspondientes de acuerdo a la ocupacion
+        /*form.setEnable(form.down('field[name=tiba]'), record.get('TIBA'));
         form.setEnable(form.down('field[name=cii]'), record.get('CII'));
-        form.setEnable(form.down('field[name=cii]'), record.get('BIT'));
-
-        //form.reset();
+        form.setEnable(form.down('field[name=cii]'), record.get('BIT'));*/
     },
     /**
      * cuando se logea el usuario
@@ -438,7 +436,7 @@ Ext.define('Triton.controller.Main', {
                 me.unmask();
                 list.setCurrentPage(1);
             }, function() {
-                //console.log(arguments)
+
             });
         });
     },
@@ -496,11 +494,11 @@ Ext.define('Triton.controller.Main', {
             me.updateInformation(localStorage.getItem('pendingPage') * 1, localStorage.getItem('pendingTotalPages') * 1, undefined, tablesArray, localStorage.getItem('pendingTablesIndex') * 1);
             return;
         }
-        if (fecha == localStorage.getItem('fechaUltimaSincronizacion')) {
+        /*if (fecha == localStorage.getItem('fechaUltimaSincronizacion')) {
             Ext.Msg.alert('Dispositivo sincronizado.');
             me.unmask();
             return;
-        }
+        }*/
         Ext.data.JsonP.request({
             url: Ext.String.format('{0}/{1}/{2}/{3}/{4}', localStorage.getItem('url'), 'tablas', localStorage.getItem('triton_token'), 1, fecha),
             callback: function(c, action) {
@@ -558,15 +556,12 @@ Ext.define('Triton.controller.Main', {
             url: me.constructURL(query.storeName, pagina),
             callback: function(c, action) {
                 action = Ext.decode(action);
-                //console.log(action);
                 if (action.success === true) {
                     paginasTotales = action.paginas;
                     db.transaction(function(tx) {
                         Ext.each(action.data, function(item, index) {
                             tx.executeSql(query.query, proxy.getColumnValues(columns, item), function() {
-                                //console.log(arguments);
                             }, function() {
-                                //console.log(arguments);
                             });
                         });
                         me.unmask();
@@ -653,7 +648,6 @@ Ext.define('Triton.controller.Main', {
         }
         placeholders = tmp.join(', ');
         query = 'INSERT INTO ' + table + ' (' + columns.join(', ') + ') VALUES (' + placeholders + ')';
-        //console.log(query);
         return {
             query: query,
             proxy: proxy,
@@ -717,7 +711,7 @@ Ext.define('Triton.controller.Main', {
     },//*******************
     calcularExtraprima: function(ocupacionRecord, formaPago, coberturas, data) {
         var suma = 0,
-            auxSuma,
+            auxSuma = 0,
             me = this;
         //tenemos que ir por las tarifas para hacer los calculos
         if (ocupacionRecord.get('BAS') && data.suma) {
@@ -760,7 +754,7 @@ Ext.define('Triton.controller.Main', {
             suma = suma + auxSuma;
             me.Coberturas['GFA'].extraprima = suma;
         }
-        return parseFloat(suma).toFixed(2) * 1;
+        return parseFloat(suma).toFixed(2);
     },
     /*
      simpre se debe de mandar a llamar a este metodo
@@ -968,9 +962,7 @@ Ext.define('Triton.controller.Main', {
         }
 
         Ext.iterate(pagos, function(key, value) {
-            //prima = (suma / value) + data.extraprima;
-            //primaTotal = prima + data.excedente + data.extraprima;
-            primaTotal = (suma + data.excedente + data.extraprima) / value;
+            primaTotal = ((suma * 1) + (data.excedente * 1) + (data.extraprima * 1)) / value;
             primaTotal = parseFloat(primaTotal).toFixed(2);
             tiposPago.push({
                 pago: key,
