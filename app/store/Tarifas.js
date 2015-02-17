@@ -8,7 +8,6 @@ Ext.define('Triton.store.Tarifas', {
     requires: ['Triton.model.Tarifa'],
     config: {
         model: 'Triton.model.Tarifa',
-        autoLoad:true,
-        pageSize:100
+        autoLoad:true
     }
 });

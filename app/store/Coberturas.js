@@ -8,7 +8,6 @@ Ext.define('Triton.store.Coberturas', {
     requires: ['Triton.model.Cobertura'],
     config: {
         model: 'Triton.model.Cobertura',
-        autoLoad:true,
-        pageSize:100
+        autoLoad:true
     }
 });
