@@ -8,7 +8,6 @@ Ext.define('Triton.store.Factores', {
     requires: ['Triton.model.Factor'],
     config: {
         model: 'Triton.model.Factor',
-        autoLoad:true,
-        pageSize:100
+        autoLoad:true
     }
 });

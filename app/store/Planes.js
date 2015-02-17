@@ -8,7 +8,6 @@ Ext.define('Triton.store.Planes', {
     requires: ['Triton.model.Plan'],
     config: {
         model: 'Triton.model.Plan',
-        autoLoad:true,
-        pageSize:100
+        autoLoad:true
     }
 });

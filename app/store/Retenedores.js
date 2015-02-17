@@ -8,7 +8,6 @@ Ext.define('Triton.store.Retenedores', {
     requires: ['Triton.model.Retenedor'],
     config: {
         model: 'Triton.model.Retenedor',
-        pageSize:100,
         autoLoad:true
     }
 });

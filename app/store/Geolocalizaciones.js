@@ -8,7 +8,6 @@ Ext.define('Triton.store.Geolocalizaciones', {
     requires: ['Triton.model.Geolocalizacion'],
     config: {
         model: 'Triton.model.Geolocalizacion',
-        autoLoad:true,
-        pageSize:100
+        autoLoad:true
     }
 });
