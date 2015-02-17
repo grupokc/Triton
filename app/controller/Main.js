@@ -3,64 +3,63 @@ Ext.define('Triton.controller.Main', {
     config: {
         refs: {
             main: {
-             selector: 'main'
-             }
+                selector: 'main'
+            }
         },
         control: {
             'loginform': {
                 loginuser: 'onLoginUser'
-             },
-             'mapa': {
+            },
+            'mapa': {
                 activate: 'setMarkers'
-             },
-             'mapa #currentLocation': {
+            },
+            'mapa #currentLocation': {
                 tap: 'setCurrentLocation'
-             },
-             carterasnavigationview: {
+            },
+            carterasnavigationview: {
                 back: 'onCarterasNavigationViewBack'
-             },
-             'carterasnavigationview carteraslist': {
+            },
+            'carterasnavigationview carteraslist': {
                 itemtap: 'onSelectCartera'
-             },
-             'carterasnavigationview carteraslist searchfield': {
+            },
+            'carterasnavigationview carteraslist searchfield': {
                 clearicontap: 'onSearchCarterasClearIconTap'
-                //keyup: 'onSearchCarterasKeyUp'
-             },
-             'carterasnavigationview #buscarCartera': {
+            },
+            'carterasnavigationview #buscarCartera': {
                 tap: 'onSearchCarterasKeyUp'
-             },
-             'ocupacioneslist searchfield': {
+            },
+            'ocupacioneslist searchfield': {
                 clearicontap: 'onSearchOcupacionesClearIconTap',
                 keyup: 'onSearchOcupacionesKeyUp'
-             },
-             'main #configurationPanel #sincronizar': {
+            },
+            'main #configurationPanel #sincronizar': {
                 tap: 'updateDataFromServer'
-             },
-             'main #configurationPanel #borrarInformacion': {
+            },
+            'main #configurationPanel #borrarInformacion': {
                 tap: 'clearUser'
-             },
-             'cotizadorform ocupacionselectfield': {
+            },
+            'cotizadorform ocupacionselectfield': {
                 seleccionado: 'setOcupacionDetails',
                 onShowPicker: 'onShowPicker'
-             },
-             'cotizadorform selectfield': {
+            },
+            'cotizadorform selectfield': {
                 onShowPicker: 'onShowPicker'
-             },
-             'cotizadorform': {
+            },
+            'cotizadorform': {
                 validdata: 'setCotizacionDetails'
-             },
-             'mapa searchfield': {
+            },
+            'mapa searchfield': {
                 clearicontap: 'onSearchPlaceIconTap',
                 keyup: 'onSearchPlaceKeyUp',
                 seleccionado: 'onSelectPlace',
                 onShowPicker: 'onShowPicker'
-             },
-             'main #logout': {
+            },
+            'main #logout': {
                 activate: 'logoutUser'
-             },
-             'main tabpanel': {
+            },
+            'main tabpanel': {
                 activeitemchange: 'onActivateTabsOnTabPanel'
-             }
+            }
         }
     },
     onShowPicker: function(picker, panel) {
@@ -249,7 +248,7 @@ Ext.define('Triton.controller.Main', {
             return false;
         }
 
-        switch(newPanel.initialConfig.title){
+        switch (newPanel.initialConfig.title) {
             case 'Cotizador':
                 newPanel.down('#cotizadorMainMenu').setPressedButtons([0]);
                 break;
@@ -295,7 +294,7 @@ Ext.define('Triton.controller.Main', {
         }
         me.mask('Iniciando ...');
         Ext.data.JsonP.request({
-            url: Ext.String.format('http://triton.grupokc.com.mx/login/validar/{0}/{1}/{2}/{3}', values.clave, values.password, uuid, "android"/*Ext.device.Device.platform*/),//TODO Este es el fucking error
+            url: Ext.String.format('http://triton.grupokc.com.mx/login/validar/{0}/{1}/{2}/{3}', values.clave, values.password, uuid, "android" /*Ext.device.Device.platform*/ ), //TODO Este es el fucking error
             params: values,
             callback: function(c, response) {
                 response = Ext.decode(response);
@@ -352,7 +351,7 @@ Ext.define('Triton.controller.Main', {
             store = Ext.getStore('CarterasCoberturas'),
             proxy = store.getModel().getProxy(),
             db = proxy.getDatabaseObject();
-        estatus_polizas = ['', 'Vigente', 'Cancelación x Agotamiento de reserva', 'Cancelación x Falta de pago', 'Cancelación interna','Rescate','Siniestro','Invalidez'];
+        estatus_polizas = ['', 'Vigente', 'Cancelación x Agotamiento de reserva', 'Cancelación x Falta de pago', 'Cancelación interna', 'Rescate', 'Siniestro', 'Invalidez'];
         me.mask('Consultando Cartera ...');
         navigationView.push({
             title: 'Datos de la poliza',
@@ -416,16 +415,30 @@ Ext.define('Triton.controller.Main', {
         var me = this,
             field = btn.up('toolbar').down('searchfield'),
             list = btn.up('carteraslist'),
-            value = field.getValue();
+            value = field.getValue(),
+            store = list.getStore();
 
-            //filtramos el store, luego cargamos 
-            list.getStore().filter([
-                {property: 'rfc', value: value, anyMatch: true},
-                {property: 'poliza', value: value, anyMatch: true},
-                {property: 'nombre', value: value, anyMatch: true},
-                {property: 'Nombre_Retenedor', value: value, anyMatch: true}
-            ]);
-            list.getStore().load();
+        //limpiamos filtros
+        store.clearFilter(true);
+        //filtramos el store, luego cargamos 
+        store.filter([{
+            property: 'rfc',
+            value: value,
+            anyMatch: true
+        }, {
+            property: 'poliza',
+            value: value,
+            anyMatch: true
+        }, {
+            property: 'nombre',
+            value: value,
+            anyMatch: true
+        }, {
+            property: 'Nombre_Retenedor',
+            value: value,
+            anyMatch: true
+        }]);
+        store.load();
     },
     /**
      * Limpiamos el searchfield y el store
@@ -435,7 +448,7 @@ Ext.define('Triton.controller.Main', {
         this.onSearchCarterasKeyUp(f);
     },
     /**
-     * Cuando buscamos un cliente mediante el searchfield
+     * Cuando buscamos una ocupacion mediante el searchfield
      */
     onSearchOcupacionesKeyUp: function(field) {
         var me = this,
@@ -446,20 +459,15 @@ Ext.define('Triton.controller.Main', {
         if (field.getValue().length < 3 && field.getValue() !== '') {
             return false;
         }
-        me.mask('Buscando ...');
-        //we make the query
-        query = "SELECT * FROM Ocupacion WHERE ((descripcion like '%" + value + "%')) ORDER BY descripcion ASC LIMIT 50 ";
-        store.removeAll();
-        db.transaction(function(tx) {
-            tx.executeSql(query, [], function(tx, results) {
-                var len = results.rows.length,
-                    i;
-                for (i = 0; i < len; i++) {
-                    store.add(results.rows.item(i));
-                }
-                me.unmask();
-            }, null);
-        });
+        //limpiamos filtros
+        store.clearFilter(true);
+        //filtramos el store, luego cargamos 
+        store.filter([{
+            property: 'descripcion',
+            value: value,
+            anyMatch: true
+        }]);
+        store.load();
     },
     /**
      * Limpiamos el searchfield y el store
@@ -507,7 +515,7 @@ Ext.define('Triton.controller.Main', {
                         });
                         //tablesArray = ['Carteras'];
                         me.updateInformation(undefined, undefined, undefined, tablesArray, 0);
-                    }else if(action.data.length == 0){
+                    } else if (action.data.length == 0) {
                         Ext.Msg.alert('No hay datos que sincronizar.');
                     } else {
                         Ext.Msg.alert('Tu dispositivo esta deshabilitado.');
@@ -547,9 +555,7 @@ Ext.define('Triton.controller.Main', {
                     paginasTotales = action.paginas;
                     db.transaction(function(tx) {
                         Ext.each(action.data, function(item, index) {
-                            tx.executeSql(query.query, proxy.getColumnValues(columns, item), function() {
-                            }, function() {
-                            });
+                            tx.executeSql(query.query, proxy.getColumnValues(columns, item), function() {}, function() {});
                         });
                         me.unmask();
                         /**
@@ -695,7 +701,10 @@ Ext.define('Triton.controller.Main', {
                 Anual: 1
             };
         me.generarCotizacion(data, form.down('ocupacionselectfield').getRecord(), pagos[data.pago]);
-    },//*******************
+    }, 
+    /**
+     * Calculamos extraprima
+     */    
     calcularExtraprima: function(ocupacionRecord, formaPago, coberturas, data) {
         var suma = 0,
             auxSuma = 0,
@@ -909,8 +918,9 @@ Ext.define('Triton.controller.Main', {
             tiposPago = [],
             obj = {};
 
-        switch(data.pago){
-            case 'Diaria':break;
+        switch (data.pago) {
+            case 'Diaria':
+                break;
             case 'Quincenal':
                 pagos = {
                     Diaria: 15

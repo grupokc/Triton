@@ -8,7 +8,7 @@ Ext.define('Triton.store.Carteras', {
     requires: ['Triton.model.Cartera'],
     config: {
         model: 'Triton.model.Cartera',
-        pageSize: 10,
+        pageSize: 50,
         sorters: ['nombre', 'rfc', 'poliza'],
         autoLoad:true,
         clearOnPageLoad : false

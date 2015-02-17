@@ -9,10 +9,11 @@ Ext.define('Triton.store.Ocupaciones', {
     config: {
         model: 'Triton.model.Ocupacion',
         autoLoad: true,
-        pageSize: 100,
+        pageSize: 50,
         sorters: [{
             property: 'descripcion',
             direction: 'ASC'
-        }]
+        }],
+        clearOnPageLoad : false
     }
 });

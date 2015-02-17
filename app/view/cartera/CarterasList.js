@@ -46,43 +46,6 @@ Ext.define('Triton.view.cartera.CarterasList', {
             initialize: function(list) {
                 var scroller = list.getScrollable().getScroller();
                 scroller.on({
-                    /*scrollend: function(scroller, x, y) {
-                        if (y >= scroller.maxPosition.y) {
-                            var me = list,
-                                currentScrollToTopOnRefresh,
-                                value,
-                                store = list.getStore(),
-                                db = store.getModel().getProxy().getDatabaseObject(),
-                                records = [];
-                            if (!me.storeFullyLoaded()) {
-                                currentScrollToTopOnRefresh = list.getScrollToTopOnRefresh();
-                                list.setScrollToTopOnRefresh(false);
-                                value = list.down('searchfield').getValue();
-                                //we make the query
-                                query = "SELECT * FROM CARTERA WHERE ((rfc like '%" + value + "%') OR (poliza like '%" + value + "%') OR (nombre like '%" + value + "%') OR (Nombre_Retenedor like '%" + value + "%')) Order by nombre ASC LIMIT 10";
-                                
-                                list.setMasked({
-                                    xtype: 'loadmask',
-                                    message: 'Cargando ...'
-                                });
-                                console.log(query);
-                                db.transaction(function(tx) {
-                                    tx.executeSql(query, [], function(tx, results) {
-                                        var len = results.rows.length,
-                                            i;
-                                        for (i = 0; i < len; i++) {
-                                            records.push(results.rows.item(i))
-                                        }
-                                        list.setScrollToTopOnRefresh(currentScrollToTopOnRefresh);
-                                        list.setMasked(false);
-                                        list.setCurrentPage(list.getCurrentPage() + 1);
-                                    }, function () {
-                                        console.log(arguments);
-                                    });
-                                });
-                            }
-                        }
-                    },*/
                     scrollend: function(scroller, x, y) {
                         if (y >= scroller.maxPosition.y) {
                             var me = list,
