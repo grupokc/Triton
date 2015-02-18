@@ -893,25 +893,26 @@ Ext.define('Triton.controller.Main', {
             data.excedente = (data.excedente * 1) || 0;
             data.extraprima = me.calcularExtraprima(ocupacionRecord, pagos, me.Coberturas, data);
             Ext.iterate(me.Coberturas, function(key, item) {
-                suma += item.prima;
+                suma += (item.prima * 1);
                 item.prima /= pagos;
                 item.extraprima /= pagos;
-                item.suma = item.prima + item.extraprima;
+                item.suma = (item.prima * 1) + (item.extraprima * 1);
                 item.prima = parseFloat(item.prima).toFixed(2);
                 item.extraprima = parseFloat(item.extraprima).toFixed(2);
                 item.suma = parseFloat(item.suma).toFixed(2);
                 auxCoberturas.push(item);
             }, me);
-            data.prima = (suma / pagos) + data.extraprima;
-            data.primaTotal = data.prima + data.excedente + data.extraprima;
+            data.prima = (suma / pagos) + (data.extraprima * 1);
+            data.primaTotal = (data.prima * 1) + (data.excedente * 1) + (data.extraprima * 1);
             data.primaTotal = parseFloat(data.primaTotal).toFixed(2);
             data.prima = parseFloat(data.prima).toFixed(2);
+            data.excedente = parseFloat(data.excedente).toFixed(2);
             data.coberturas = auxCoberturas;
             //calculamos los demas tipos de pago
             data.tiposPago = me.calcularTipoPago(data.prima, data);
             me.getMain().down('tabpanel').down('cotizadorform').down('resumecontainer').setData(data);
             me.unmask();
-        }, 1000);
+        }, 1500);
     },
     calcularTipoPago: function(suma, data) {
         var pagos = {},
