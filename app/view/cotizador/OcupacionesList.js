@@ -8,16 +8,15 @@ Ext.define('Triton.view.cotizador.OcupacionesList', {
     xtype: 'ocupacioneslist',
     requires: ['Ext.field.Search', 'Ext.plugin.ListPaging'],
     config: {
-        pinHeaders: false,
+        //pinHeaders: false,
         currentPage : 1,
         /**/
-        variableHeights: true,
-        styleHtmlContent:true,
+        //variableHeights: true,
+        //styleHtmlContent:true,
         useSimpleItems: false,
         /**/
         itemTpl: '<div class="triton-cartera-client-tpl"><strong>{descripcion}</strong></div>',
         store: 'Ocupaciones',
-        useSimpleItems: true,
         emptyText: '<div style="margin-top: 20px; text-align: center">No hay ocupaciones con esos datos</div>',
         items: [{
             xtype: 'toolbar',

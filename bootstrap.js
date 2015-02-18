@@ -761,6 +761,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.viewport.WP"
   ],
   "Triton.controller.Main": [],
+  "Triton.custom.proxy.SQL": [],
   "Triton.form.EdadField": [],
   "Triton.form.cotizador.CotizadorForm": [],
   "Triton.form.cotizador.CurrencyField": [],
@@ -1751,6 +1752,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
   "Triton.controller.Main": [],
+  "Triton.custom.proxy.SQL": [
+    "proxy.customsql"
+  ],
   "Triton.form.EdadField": [
     "widget.edadfield"
   ],

@@ -39,6 +39,8 @@ Ext.define('Triton.form.cotizador.OcupacionSelectField', {
             Ext.Viewport.add(listPanel);
         }
         listPanel.show();
+        listPanel.hide();
+        listPanel.show();
         if (value || me.getAutoSelect()) {
             store = list.getStore();
             index = store.find(me.getValueField(), value, null, null, null, true);
