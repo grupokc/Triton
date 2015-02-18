@@ -469,9 +469,7 @@ Ext.define('Triton.controller.Main', {
             value: value,
             anyMatch: true
         }]);
-        store.load(function () {
-          console.log(arguments);
-        });
+        store.load();
     },
     /**
      * Limpiamos el searchfield y el store
