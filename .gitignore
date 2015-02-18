@@ -7,4 +7,5 @@
 *.log
 .sass-cache
 build
-cordova
+cordova/*
+!cordova/config.xml
