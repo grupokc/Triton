@@ -15,9 +15,9 @@ Ext.define('Triton.view.cartera.CarterasList', {
                 '<div class="triton-cartera-client-tpl-green">',
             '<tpl else>',
                 '<div class="triton-cartera-client-tpl">',
-            '</tpl>', 
+            '</tpl>',
                 '<p>{nombre}</p>',
-                '<span>RFC : <b>{rfc}</b></span> </br>', 
+                '<span>RFC : <b>{rfc}</b></span> </br>',
                 '<span>Poliza : <b>{poliza}</b></span> </br>',
                 '<span>Retenedor : <b>{Nombre_Retenedor}</b></span>',
             '</div>'
