@@ -419,8 +419,9 @@ Ext.define('Triton.controller.Main', {
             store = list.getStore();
 
         //limpiamos filtros
+        store.currentPage = 1;
         store.clearFilter(true);
-        //filtramos el store, luego cargamos 
+        //filtramos el store, luego cargamos
         store.filter([{
             property: 'rfc',
             value: value,
@@ -460,14 +461,17 @@ Ext.define('Triton.controller.Main', {
             return false;
         }
         //limpiamos filtros
+        store.currentPage = 1;
         store.clearFilter(true);
-        //filtramos el store, luego cargamos 
+        //filtramos el store, luego cargamos
         store.filter([{
             property: 'descripcion',
             value: value,
             anyMatch: true
         }]);
-        store.load();
+        store.load(function () {
+          console.log(arguments);
+        });
     },
     /**
      * Limpiamos el searchfield y el store
@@ -701,10 +705,10 @@ Ext.define('Triton.controller.Main', {
                 Anual: 1
             };
         me.generarCotizacion(data, form.down('ocupacionselectfield').getRecord(), pagos[data.pago]);
-    }, 
+    },
     /**
      * Calculamos extraprima
-     */    
+     */
     calcularExtraprima: function(ocupacionRecord, formaPago, coberturas, data) {
         var suma = 0,
             auxSuma = 0,
