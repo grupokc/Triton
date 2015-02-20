@@ -900,7 +900,11 @@ Ext.define('Triton.controller.Main', {
                 item.prima = parseFloat(item.prima).toFixed(2);
                 item.extraprima = parseFloat(item.extraprima).toFixed(2);
                 item.suma = parseFloat(item.suma).toFixed(2);
-                auxCoberturas.push(item);
+
+                //excluimos BIT del resumen
+                if(key !== 'BIT'){
+                  auxCoberturas.push(item);
+                }
             }, me);
             data.prima = (suma / pagos) + (data.extraprima * 1);
             data.primaTotal = (data.prima * 1) + (data.excedente * 1) + (data.extraprima * 1);
