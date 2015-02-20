@@ -13,7 +13,7 @@ Ext.define('Triton.view.cotizador.ResumeTpl', {
 				'<div class="ocupacion">Ocupación: <b>{ocupacion}</b></div>',
 				'<div class="header">',
 					'Edad: <b>{edad}</b>| Sexo: <b>{genero}</b>| Fuma: <b>{fuma}</b>',
-				'</div>',				
+				'</div>',
 				'<div class="datos">',
 					'<span>Datos de la Cotización</span>',
 					'<ul>',
@@ -21,6 +21,7 @@ Ext.define('Triton.view.cotizador.ResumeTpl', {
 						'<li>Prima: <b>$ {prima}</b></li>',
 						'<li>Extraprima: <b>$ {extraprima}</b></li>',
 						'<li>Prima Excedente: <b>$ {excedente}</b></li>',
+						'<li>Prima + Extraprima: <b>$ {sumaPrimaExtraprima}</b></li>',
 					'</ul>',
 					'<span>PRIMA TOTAL</span>',
 					'<ul>',
@@ -47,7 +48,7 @@ Ext.define('Triton.view.cotizador.ResumeTpl', {
 							  '<td>$ {suma}</td>',
 							'</tr>',
 						'</tpl>',
-					'</table>',					
+					'</table>',
 				'</div>',
 			'</div>'
 		];

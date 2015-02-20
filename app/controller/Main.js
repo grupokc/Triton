@@ -914,6 +914,8 @@ Ext.define('Triton.controller.Main', {
             data.coberturas = auxCoberturas;
             //calculamos los demas tipos de pago
             data.tiposPago = me.calcularTipoPago(data.prima, data);
+
+            data.sumaPrimaExtraprima = parseFloat((data.extraprima * 1) + (data.prima * 1)).toFixed(2);
             me.getMain().down('tabpanel').down('cotizadorform').down('resumecontainer').setData(data);
             me.unmask();
         }, 1500);

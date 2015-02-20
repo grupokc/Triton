@@ -190,6 +190,10 @@ Ext.define('Triton.model.Cotizacion', {
             type: 'sumaGE',
             message: 'La suma GE debe ser mayor a 0'
         }, {
+            field: 'sumaGE',
+            type: 'sumaGEMayor',
+            message: 'La suma GE  no puede ser mayor a la suma asegurada'
+        }, {
             field: 'sumaCII',
             type: 'sumaCII',
             message: 'CII solo puede calcular en el rango de 30,000 a la cobertura BAS'
@@ -390,12 +394,19 @@ Ext.define('Triton.model.Cotizacion', {
                     value = config;
                 }
                 return !data.cii || value >= 30000 && value <= suma ;
-            }, 
+            },
             sumaGE: function (config, value, data) {
                 if (arguments.length === 1) {
                     value = config;
                 }
                 return !data.ge || value > 0;
+            },
+            sumaGEMayor: function (config, value, data) {
+              var suma = data.suma * 1;
+              if (arguments.length === 1) {
+                  value = config;
+              }
+              return value <= suma;
             },
             sumaTIBA: function (config, value, data) {
                 var suma = data.suma * 1;
@@ -588,7 +599,7 @@ Ext.define('Triton.model.Cotizacion', {
                 if (arguments.length === 1) {
                     value = config;
                 }
-                return !data.cat || (value >= 0 && value <= suma);
+                return !data.cat || (value > 0 && value <= suma);
             },
             edadGFC1: function (config, value, data) {
                 if (arguments.length === 1) {
