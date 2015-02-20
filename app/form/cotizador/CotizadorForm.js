@@ -775,7 +775,7 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
                     xtype: 'button',
                     text: 'Limpiar Cotización',
                     handler:function (btn) {
-                       btn.up('cotizadorform').reset(); 
+                       btn.up('cotizadorform').reset();
                     }
                 }]
             }]
@@ -846,7 +846,7 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
                 item.enable();
                 item.show();
                 if (item.isXType('numberfield')) {
-                    //si se trata del primer numberfield dentros del fieldset,se debe de enfocar!!!               
+                    //si se trata del primer numberfield dentros del fieldset,se debe de enfocar!!!
                     fieldToFocus = fieldToFocus || index;
                     if (fieldToFocus === index) {
                         numberfield = item;
@@ -895,6 +895,7 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
     excluirCoberturas: function(chk, value) {
         var form = chk.up('cotizadorform'),
             data = form.getValues();
+
         switch (chk.getName()) {
             case 'tiba':
                 chk = chk.up('cotizadorform').down('field[name=cma]');
@@ -902,9 +903,10 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
                     Ext.Msg.alert('Aviso!', "Favor de llenar la suma asegurada");
                     chk.uncheck();
                     return false;
-                } else {
-                    chk.up('cotizadorform').down('field[name=sumaTIBA]').setValue(data.suma)
                 }
+                chk.up('cotizadorform').down('field[name=sumaTIBA]').setValue(data.suma);
+                chk.reset().setDisabled(value);
+                return true;
                 break;
             case 'cii':
                 if (value && !data.suma) {
@@ -914,7 +916,6 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
                 } else {
                     chk.up('cotizadorform').down('field[name=sumaCII]').setValue(data.suma)
                 }
-                //return true;
                 break;
             case 'cma':
                 if (value && !data.suma) {
@@ -925,6 +926,8 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
                     chk.up('cotizadorform').down('field[name=sumaCMA]').setValue(data.suma)
                 }
                 chk = chk.up('cotizadorform').down('field[name=tiba]');
+                chk.reset().setDisabled(value);
+                return true;
                 break;
         }
 
