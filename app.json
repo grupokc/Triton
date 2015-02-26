@@ -32,16 +32,15 @@
             }
         },
         "ios": {
-            "packager": "phonegap",
-            "phonegap": {
-                "config": {
-                    "platforms": "ios",
-                    "platform": "ios",
-                    "name": "Triton",
-                    "id": "com.grupokc.Triton",
-                    "remote":true
-                }
-            }
+          "packager": "cordova",
+          "cordova": {
+              "config": {
+                  "platforms": "ios",
+                  "platform": "ios",
+                  "name": "Triton",
+                  "id": "com.grupokc.Triton"
+              }
+          }
         }
     },
 

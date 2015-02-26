@@ -89,7 +89,7 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
             items: [{
                 xtype: 'fieldset',
                 defaults: {
-                    labelWidth: '50%'
+                    labelWidth: '55%'
                 },
                 items: [{
                     xtype: 'currencyfield',

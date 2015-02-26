@@ -10,4 +10,5 @@
     <content src="index.html" />
     <access origin="*" />
     <icon src="../resources/icons/triton.png" />
+    <splash src="../resources/loading/Default.png" />
 </widget>
