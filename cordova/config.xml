@@ -9,6 +9,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <icon src="../resources/icons/triton.png" />
+    <icon src="../resources/icons/iTunesArtwork@2x.jpg" />
     <splash src="../resources/loading/Default.png" />
 </widget>
