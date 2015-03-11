@@ -783,8 +783,6 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
     },
     edadDelTitularCambio: function(field, newValue, oldValue, eOpts) {
         var me = this;
-        //me.reset();
-        //
         me.down('field[name=gfa]').enable();
         me.down('field[name=gfc]').enable();
         me.down('field[name=bac]').enable();
@@ -794,18 +792,22 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
         me.down('field[name=cma]').enable();
         me.down('field[name=tiba]').enable();
         me.down('field[name=cat]').enable();
+        if (newValue > 80) {
+            me.down('field[name=gfc]').reset().disable();
+        }
         if (newValue > 70) {
             me.down('field[name=gfa]').reset().disable();
-            me.down('field[name=gfc]').reset().disable();
             me.down('field[name=bac]').reset().disable();
             me.down('field[name=ge]').reset().disable();
         }
+        if(newValue > 65){
+          me.down('field[name=cma]').reset().disable();
+          me.down('field[name=tiba]').reset().disable();
+          me.down('field[name=cat]').reset().disable();
+        }
         if (newValue > 55) {
-            me.down('field[name=bit]').reset().disable();
             me.down('field[name=cii]').reset().disable();
-            me.down('field[name=cma]').reset().disable();
-            me.down('field[name=tiba]').reset().disable();
-            me.down('field[name=cat]').reset().disable();
+            me.down('field[name=bit]').reset().disable();
         }
     },
     changeTabsForOptions: function(container, button, pressed) {
