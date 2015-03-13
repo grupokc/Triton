@@ -808,6 +808,7 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
         if (newValue > 55) {
             me.down('field[name=cii]').reset().disable();
             me.down('field[name=bit]').reset().disable();
+            me.down('field[name=ptt]').reset().disable();
         }
     },
     changeTabsForOptions: function(container, button, pressed) {
