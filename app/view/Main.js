@@ -47,7 +47,7 @@ Ext.define('Triton.view.Main', {
             }]
         }, {
             xtype: 'tabpanel',
-            activeItem: 3, 
+            activeItem: 3,
             tabBarPosition: 'bottom',
             items: [{
                 title: 'Cotizador',
@@ -108,7 +108,7 @@ Ext.define('Triton.view.Main', {
                     }]
                 },{
                     xtype: 'fieldset',
-                    instructions: 'TRITON <br> Versión 1.0.0'
+                    instructions: 'TRITON <br> Versión 1.0.3'
                 }]
             }, {
                 title: 'Salir',
