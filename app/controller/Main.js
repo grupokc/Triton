@@ -393,7 +393,7 @@ Ext.define('Triton.controller.Main', {
 
                     //para la reserva
                     data.reserva60 = parseFloat(data.reserva * 0.6).toFixed(2);
-                    data.signo_reserva = signo_reserva.toUpperCase( );
+                    data.signo_reserva = data.signo_reserva.toUpperCase( );
 
                     /*data.fecha_solicitud_dividendos = data.fecha_solicitud_dividendos.split(' ');
                      data.fecha_solicitud_dividendos = data.fecha_solicitud_dividendos[0];*/

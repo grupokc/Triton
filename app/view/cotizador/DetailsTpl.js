@@ -35,7 +35,6 @@ Ext.define('Triton.view.cotizador.DetailsTpl', {
 					'<ul>',
 						'<li>Fecha Último Descuento: <b>{fecha_ultimo_descuento}</b></li>',
 						'<li>Reserva: <b>$ {reserva}</b></li>',
-						'<li>******: <b>$ {signo_reserva}</b></li>',
 							'<tpl if="signo_reserva === \'P\'">',
 								'<li>Reserva al 60%: <b>$ {reserva60}</b></li>',
 							'</tpl>',
