@@ -262,9 +262,9 @@ Ext.define('Triton.controller.Main', {
         var form = this.getMain().down('cotizadorform');
         form.down('#ocupacionDetails').setData(record.getData());
         //desabilitamos los campos correspondientes de acuerdo a la ocupacion
-        /*form.setEnable(form.down('field[name=tiba]'), record.get('TIBA'));
-        form.setEnable(form.down('field[name=cii]'), record.get('CII'));
-        form.setEnable(form.down('field[name=cii]'), record.get('BIT'));*/
+        form.setEnable(form.down('field[name=tiba]'), record.get('TIBA') !== '-1.0');
+        form.setEnable(form.down('field[name=cii]'), record.get('CII') !== '-1.0');
+        form.setEnable(form.down('field[name=bit]'), record.get('BIT') !== '-1.0');
     },
     /**
      * cuando se logea el usuario

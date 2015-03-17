@@ -892,7 +892,8 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
         if (enable) {
             field.enable();
         } else {
-            field.reset().disable();
+            field.reset();
+            field.disable();
         }
     },
     excluirCoberturas: function(chk, value) {
