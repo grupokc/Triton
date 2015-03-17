@@ -125,7 +125,6 @@ Ext.define('Triton.model.Cartera',{
 			defaultValue: 'NA',
 			type:'string'
 		},{
-		},{
 			name:'signo_reserva',
 			defaultValue: 'p',
 			type:'string'
