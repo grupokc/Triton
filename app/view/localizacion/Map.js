@@ -97,7 +97,7 @@ Ext.define('Triton.view.localizacion.Map', {
                     coordinates = mapOptions.center;
                 }
                 else {
-                    coordinates = new gm.LatLng(19.3692879, -99.1453258); // Palo Alto
+                    coordinates = new gm.LatLng(19.436089, -99.186265); // Palo Alto
                 }
             }
 
