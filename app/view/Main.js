@@ -108,7 +108,7 @@ Ext.define('Triton.view.Main', {
                     }]
                 },{
                     xtype: 'fieldset',
-                    instructions: 'TRITON <br> Versión 1.0.3'
+                    instructions: 'TRITON <br> Versión 1.0.4'
                 }]
             }, {
                 title: 'Salir',
