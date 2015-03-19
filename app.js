@@ -14,7 +14,7 @@ Ext.application({
     name: 'Triton',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
     ],
 
     views: [

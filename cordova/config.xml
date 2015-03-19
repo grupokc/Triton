@@ -11,4 +11,10 @@
     <access origin="*" />
     <icon src="../resources/icons/triton.png" />
     <splash src="../resources/loading/Default.png" />
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
 </widget>
