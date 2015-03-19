@@ -71,7 +71,15 @@ Ext.define('Triton.controller.Main', {
             gm = (window.google || {}).maps,
             coordinates;
         //http://community.phonegap.com/nitobi/topics/geolocation_works_with_one_android_device_but_not_another
-        Ext.device.Geolocation.getCurrentPosition({
+
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            map.setMapCenter(position.coords);
+          },
+          function() {
+            Ext.Msg.alert('Aviso', 'Error mientras se obtenía la localización');
+        });
+        /*Ext.device.Geolocation.getCurrentPosition({
             allowHighAccuracy: true,
             maximumAge: 90000,
             success: function(position) {
@@ -80,7 +88,7 @@ Ext.define('Triton.controller.Main', {
             failure: function() {
                 Ext.Msg.alert('Aviso', 'Error mientras se obtenía la localización');
             }
-        });
+        });*/
     },
     onSelectPlace: function(field, list, record) {
         var me = this,
