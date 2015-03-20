@@ -69,16 +69,33 @@ Ext.define('Triton.controller.Main', {
     setCurrentLocation: function(btn) {
         var lat, lng, map = btn.up('mapa'),
             gm = (window.google || {}).maps,
+            geoReady = navigator.geolocation || undefined,
             coordinates;
         //http://community.phonegap.com/nitobi/topics/geolocation_works_with_one_android_device_but_not_another
 
-        navigator.geolocation.getCurrentPosition(
-          function(position) {
-            map.setMapCenter(position.coords);
-          },
-          function() {
-            Ext.Msg.alert('Aviso', 'Error mientras se obtenía la localización');
-        });
+        if (geoReady) {
+          Ext.Msg.alert('Aviso', 'geoReady!!!');
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    setTimeout(function() {
+                        Ext.Msg.alert('Aviso', 'Position');
+                        map.setMapCenter(position.coords);
+                    }, 100);
+                },
+                function(error) {
+                    Ext.Msg.alert('Aviso', 'code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+                }, {
+                    timeout: 10000,
+                    enableHighAccuracy: true,
+                    maximumAge: 0
+                });
+        }else{
+          Ext.Msg.alert('Aviso', 'No hay navigator');
+        }
+
+
+
         /*Ext.device.Geolocation.getCurrentPosition({
             allowHighAccuracy: true,
             maximumAge: 90000,
@@ -153,8 +170,9 @@ Ext.define('Triton.controller.Main', {
     },
     // remove all markers
     clearMarkers: function() {
-        var me = this;
-        for (var i = 0; i < me.mapMarkers.length; i++) {
+        var me = this,
+        markers = me.mapMarkers || [];
+        for (var i = 0; i < markers.length; i++) {
             me.mapMarkers[i].setMap(null);
         }
         me.mapMarkers = new Array();
@@ -401,7 +419,7 @@ Ext.define('Triton.controller.Main', {
 
                     //para la reserva
                     data.reserva60 = parseFloat(data.reserva * 0.6).toFixed(2);
-                    data.signo_reserva = data.signo_reserva.toUpperCase( );
+                    data.signo_reserva = data.signo_reserva.toUpperCase();
 
                     /*data.fecha_solicitud_dividendos = data.fecha_solicitud_dividendos.split(' ');
                      data.fecha_solicitud_dividendos = data.fecha_solicitud_dividendos[0];*/
@@ -911,8 +929,8 @@ Ext.define('Triton.controller.Main', {
                 item.suma = parseFloat(item.suma).toFixed(2);
 
                 //excluimos BIT del resumen
-                if(key !== 'BIT'){
-                  auxCoberturas.push(item);
+                if (key !== 'BIT') {
+                    auxCoberturas.push(item);
                 }
             }, me);
             data.prima = (suma / pagos) + (data.extraprima * 1);

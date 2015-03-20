@@ -7,7 +7,7 @@ Ext.define('Triton.view.Main', {
     ],
     config: {
         layout: 'card',
-        activeItem: 0,
+        activeItem: 1,
         items: [{
             xtype: 'container',
             baseCls: 'login-background',
@@ -47,7 +47,7 @@ Ext.define('Triton.view.Main', {
             }]
         }, {
             xtype: 'tabpanel',
-            activeItem: 3,
+            activeItem: 2,
             tabBarPosition: 'bottom',
             items: [{
                 title: 'Cotizador',
