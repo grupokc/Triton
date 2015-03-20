@@ -72,26 +72,20 @@ Ext.define('Triton.controller.Main', {
             geoReady = navigator.geolocation || undefined,
             coordinates;
         //http://community.phonegap.com/nitobi/topics/geolocation_works_with_one_android_device_but_not_another
-
         if (geoReady) {
-          Ext.Msg.alert('Aviso', 'geoReady!!!');
             navigator.geolocation.getCurrentPosition(
                 function(position) {
-                    setTimeout(function() {
-                        Ext.Msg.alert('Aviso', 'Position');
-                        map.setMapCenter(position.coords);
-                    }, 100);
+                  map.setMapCenter(position.coords);
                 },
                 function(error) {
-                    Ext.Msg.alert('Aviso', 'code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
+                    Ext.Msg.alert('Error ' + error.code , error.message );
                 }, {
-                    timeout: 10000,
+                    timeout: 60000,
                     enableHighAccuracy: true,
-                    maximumAge: 0
+                    maximumAge: 5000
                 });
         }else{
-          Ext.Msg.alert('Aviso', 'No hay navigator');
+          Ext.Msg.alert('Aviso', 'No tienes activado el GPS');
         }
 
 
