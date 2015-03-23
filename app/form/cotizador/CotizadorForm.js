@@ -792,7 +792,7 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
         me.down('field[name=cma]').enable();
         me.down('field[name=tiba]').enable();
         me.down('field[name=cat]').enable();
-        me.down('field[name=ptt]').reset().disable();
+        me.down('field[name=ptt]').enable();
         if (newValue > 80) {
             me.down('field[name=gfc]').reset().disable();
         }

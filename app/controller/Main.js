@@ -80,7 +80,7 @@ Ext.define('Triton.controller.Main', {
                 function(error) {
                     Ext.Msg.alert('Error ' + error.code , error.message );
                 }, {
-                    timeout: 60000,
+                    timeout: 63000,
                     enableHighAccuracy: true,
                     maximumAge: 5000
                 });
