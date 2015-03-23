@@ -680,11 +680,7 @@ Ext.define('Triton.controller.Main', {
     clearUser: function(btn) {
         var me = this,
             tables = ['Carteras', 'Ocupaciones', 'Planes', 'Coberturas', 'CarterasCoberturas', 'Geolocalizaciones'];
-        localStorage.removeItem('triton_token');
-        localStorage.removeItem('clave');
-        localStorage.removeItem('password');
-        localStorage.removeItem('activate_login');
-        localStorage.removeItem('fechaUltimaSincronizacion');
+        localStorage.clear();
         Ext.each(tables, function(item) {
             me.clearTable(item);
         }, this);
