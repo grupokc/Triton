@@ -279,12 +279,13 @@ Ext.define('Triton.controller.Main', {
         }
     },
     setOcupacionDetails: function(field, list, record) {
-        var form = this.getMain().down('cotizadorform');
+        var form = this.getMain().down('cotizadorform'),
+            edad = form.down('field[name=edad]').getValue();
         form.down('#ocupacionDetails').setData(record.getData());
         //desabilitamos los campos correspondientes de acuerdo a la ocupacion
-        form.setEnable(form.down('field[name=tiba]'), record.get('TIBA') !== '-1.0');
-        form.setEnable(form.down('field[name=cii]'), record.get('CII') !== '-1.0');
-        form.setEnable(form.down('field[name=bit]'), record.get('BIT') !== '-1.0');
+        form.setEnable(form.down('field[name=tiba]'), record.get('TIBA') !== '-1.0' && edad <= 65);
+        form.setEnable(form.down('field[name=cii]'), record.get('CII') !== '-1.0' && edad <= 55);
+        form.setEnable(form.down('field[name=bit]'), record.get('BIT') !== '-1.0' && edad <= 55);
     },
     /**
      * cuando se logea el usuario
