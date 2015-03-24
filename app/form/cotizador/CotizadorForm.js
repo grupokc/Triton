@@ -899,7 +899,8 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
     },
     excluirCoberturas: function(chk, value) {
         var form = chk.up('cotizadorform'),
-            data = form.getValues();
+            data = form.getValues(),
+            edad = form.down('field[name=edad]').getValue();
 
         switch (chk.getName()) {
             case 'tiba':
@@ -910,7 +911,9 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
                     return false;
                 }
                 chk.up('cotizadorform').down('field[name=sumaTIBA]').setValue(data.suma);
-                chk.reset().setDisabled(value);
+                if (edad <= 65){
+                  chk.reset().setDisabled(value);
+                }
                 return true;
                 break;
             case 'cii':
@@ -931,7 +934,9 @@ Ext.define('Triton.form.cotizador.CotizadorForm', {
                     chk.up('cotizadorform').down('field[name=sumaCMA]').setValue(data.suma)
                 }
                 chk = chk.up('cotizadorform').down('field[name=tiba]');
-                chk.reset().setDisabled(value);
+                if (edad <= 65){
+                  chk.reset().setDisabled(value);
+                }
                 return true;
                 break;
         }
