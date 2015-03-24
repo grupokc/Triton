@@ -8,7 +8,7 @@ Ext.define('Triton.view.localizacion.Map', {
     xtype: 'mapa',
     requires: ['Triton.view.localizacion.MapList'],
     config: {
-        useCurrentLocation: true,
+        //useCurrentLocation: true,
         mapOptions: {
             zoom: 12
         },
@@ -62,16 +62,7 @@ Ext.define('Triton.view.localizacion.Map', {
                 itemId:'currentLocation',
                 iconCls:'arrow_down'
             }]
-        }],
-        listeners: {
-            show : function(comp){
-                new google.maps.Marker({
-                    position: new google.maps.LatLng(this._geo.getLatitude(), this._geo.getLongitude()),
-                    map: comp.getMap(),
-                    icon: './resources/images/current_location.png'
-                });
-            }
-        }
+        }]
     },
      /**
      * Moves the map center to the designated coordinates hash of the form:

@@ -67,15 +67,21 @@ Ext.define('Triton.controller.Main', {
         me.activeListPanel = panel;
     },
     setCurrentLocation: function(btn) {
-        var lat, lng, map = btn.up('mapa'),
+        var me = this,
+            lat, lng, map = btn.up('mapa'),
             gm = (window.google || {}).maps,
             geoReady = navigator.geolocation || undefined,
             coordinates;
-        //http://community.phonegap.com/nitobi/topics/geolocation_works_with_one_android_device_but_not_another
         if (geoReady) {
             navigator.geolocation.getCurrentPosition(
                 function(position) {
                   map.setMapCenter(position.coords);
+                  me.currentUserMarker && me.currentUserMarker.setMap(null);
+                  me.currentUserMarker = new google.maps.Marker({
+                      position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                      map: map.getMap(),
+                      icon: './resources/images/current_location.png'
+                  });
                 },
                 function(error) {
                     Ext.Msg.alert('Error ' + error.code , error.message );
@@ -87,19 +93,6 @@ Ext.define('Triton.controller.Main', {
         }else{
           Ext.Msg.alert('Aviso', 'No tienes activado el GPS');
         }
-
-
-
-        /*Ext.device.Geolocation.getCurrentPosition({
-            allowHighAccuracy: true,
-            maximumAge: 90000,
-            success: function(position) {
-                map.setMapCenter(position.coords);
-            },
-            failure: function() {
-                Ext.Msg.alert('Aviso', 'Error mientras se obtenía la localización');
-            }
-        });*/
     },
     onSelectPlace: function(field, list, record) {
         var me = this,
