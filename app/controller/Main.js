@@ -788,7 +788,6 @@ Ext.define('Triton.controller.Main', {
         auxCobertura = auxCobertura.match(/^GFC/) ? 'GFC' : auxCobertura;
         db.transaction(function(tx) {
             var query = 'SELECT * FROM TARIFA T JOIN  FACTOR F ON T.id_tarifa = F.id_tarifa  WHERE F.edad = ' + edad + "  AND T.nombre like '" + auxCobertura + "'";
-            console.log(query);
             tx.executeSql(query, [], function(tx, results) {
                 var tarifa, cobertura;
                 tarifa = results.rows.item(0);
