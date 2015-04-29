@@ -20,7 +20,7 @@
 
     "builds": {
         "web": {"default": true},
-        "android": {
+        "nativeAndroid": {
             "packager": "cordova",
             "cordova": {
                 "config": {
