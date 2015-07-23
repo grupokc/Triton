@@ -808,6 +808,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "Triton.store.Planes": [],
   "Triton.store.Retenedores": [],
   "Triton.store.Tarifas": [],
+  "Triton.util.PaintMonitor": [],
+  "Triton.util.SizeMonitor": [],
   "Triton.view.Main": [],
   "Triton.view.cartera.CarterasList": [],
   "Triton.view.cartera.CarterasNavigationView": [],
@@ -1832,6 +1834,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Triton.store.Planes": [],
   "Triton.store.Retenedores": [],
   "Triton.store.Tarifas": [],
+  "Triton.util.PaintMonitor": [],
+  "Triton.util.SizeMonitor": [],
   "Triton.view.Main": [
     "widget.main"
   ],

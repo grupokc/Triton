@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.grupokc.Triton" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Triton</name>
+    <description>
+        Cotizador triton.
+    </description>
+    <author email="armando@codetlan.com" href="http://codetlan.com">
+        Codetlan
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <icon src="../resources/icons/triton.png" />
+    <splash src="../resources/loading/Default.png" />
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
+</widget>

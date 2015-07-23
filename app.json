@@ -41,6 +41,17 @@
                   "id": "com.grupokc.Triton"
               }
           }
+        },
+        "remote": {
+          "packager": "phonegap",
+          "phonegap": {
+              "config": {
+                  "platform": "android",
+                  "name": "Triton",
+                  "remote": true,
+                  "id": "com.grupokc.Triton"
+              }
+          }
         }
     },
 
