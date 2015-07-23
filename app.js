@@ -15,6 +15,8 @@ Ext.application({
 
     requires: [
         'Ext.MessageBox',
+        'Triton.util.SizeMonitor', //TEMP fix, Chrome 43 bug
+        'Triton.util.PaintMonitor' //TEMP fix, Chrome 43 bug
     ],
 
     views: [
