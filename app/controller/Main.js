@@ -308,7 +308,7 @@ Ext.define('Triton.controller.Main', {
         }
         me.mask('Iniciando ...');
         Ext.data.JsonP.request({
-            url: Ext.String.format('http://triton.grupokc.com.mx/login/validar/{0}/{1}/{2}/{3}', values.clave, values.password, uuid, "android" /*Ext.device.Device.platform*/ ), //TODO Este es el fucking error
+            url: Ext.String.format('http://triton.grupokc.com.mx/triton/login/validar/{0}/{1}/{2}/{3}', values.clave, values.password, uuid, "android" /*Ext.device.Device.platform*/ ), //TODO Este es el fucking error
             params: values,
             callback: function(c, response) {
                 response = Ext.decode(response);
