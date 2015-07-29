@@ -48,7 +48,7 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-
+        Ext.Msg.defaultAllowedConfig.showAnimation = false;
         // Initialize the main view
         Ext.Viewport.add(Ext.create('Triton.view.Main'));
     },
